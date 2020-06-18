@@ -44,6 +44,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "portaudio.h"
+#include <string.h>
 /*
 ** Note that many of the older ISA sound cards on PCs do NOT support
 ** full duplex audio (simultaneous record and playback).
@@ -114,6 +115,7 @@ static int fuzzCallback( const void *inputBuffer, void *outputBuffer,
 
     paTestData *data = (paTestData*)userData;
 
+	
 
     if( inputBuffer == NULL )
     {
@@ -128,10 +130,38 @@ static int fuzzCallback( const void *inputBuffer, void *outputBuffer,
     {
         for( i=0; i<framesPerBuffer; i++ )
         {
-            *out++ = (*in++)*(data->sine[(int)data->lfo_phase])*0.9;  /* left - distorted */
-            *out++ = (*in++)*(data->sine[(int)data->lfo_phase])*0.9;          /* right - clean */
+			float val =  (*in++)*(data->sine[(int)data->lfo_phase])*0.9; 
+            // *out++ = (*in++)*(data->sine[(int)data->lfo_phase])*0.9;  /* left - distorted */
+            // *out++ = (*in++)*(data->sine[(int)data->lfo_phase])*0.9;          /* right - clean */
+            *out++ = val;
+			*out++ = val;
+
+		    val = *in++;		
             data->lfo_phase += data->lfo_rate;
-            if( data->lfo_phase >= TABLE_SIZE ) data->lfo_phase -= TABLE_SIZE;
+            if( data->lfo_phase >= TABLE_SIZE ) {
+              data->lfo_phase -= TABLE_SIZE;
+
+              FILE *fp;
+              char buff[255];
+
+              fp = fopen("./tmp/test.txt", "r"); // TODO: Find a more consistent trigger for reading from the text file.
+              fscanf(fp, "%s", buff);
+			  
+			  // char lookFor = ' ';			  
+			  // int spaceInd = strchr(buff, lookFor);
+			  
+			  int readInt = atoi(buff);
+
+
+			  printf("LFO Rate: %d\n", readInt);
+
+			  data->lfo_rate = (float)readInt/10000;
+			  
+			  
+
+              fclose(fp);
+              printf("\n");
+            }
     
         }
     }
@@ -197,20 +227,9 @@ int main(void)
 
 
     printf("Here we go, reading from a file...\n\n");
-    FILE *fp;
-    char buff[255];
+    
 
-    fp = fopen("/tmp/test.txt", "r");
-    fscanf(fp, "%s", buff);
-    // printf("1 : %s\n", buff );
-
-    // fgets(buff, 255, (FILE*)fp);
-    // printf("2: %s\n", buff );
-     
-    // fgets(buff, 255, (FILE*)fp);
-    // printf("3: %s\n", buff );
-    // fclose(fp);
-    printf("\n");
+    
 
 
     printf("Hit ENTER to stop program.\n");
