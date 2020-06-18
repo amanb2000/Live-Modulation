@@ -1,0 +1,14 @@
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/pa_devs.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_write_sine.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/pa_fuzz.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_ocean_shore.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_pink.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_read_write_wire.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_record.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_record_file.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_sine.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_sine_c++.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_write_sine_nonint.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/rebuild_cache.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/paex_saw.dir
+/home/aman/Documents/Live-Modulation/portaudio/examples/CMakeFiles/edit_cache.dir
