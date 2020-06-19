@@ -147,9 +147,6 @@ static int fuzzCallback( const void *inputBuffer, void *outputBuffer,
               fp = fopen("./tmp/test.txt", "r"); // TODO: Find a more consistent trigger for reading from the text file.
               fscanf(fp, "%s", buff);
 			  
-			  // char lookFor = ' ';			  
-			  // int spaceInd = strchr(buff, lookFor);
-			  
 			  int readInt = atoi(buff);
 
 
