@@ -152,14 +152,14 @@ static int fuzzCallback( const void *inputBuffer, void *outputBuffer,
 			  int readInt = atoi(buff);
 
 
-			  printf("LFO Rate: %d\n", readInt);
+			  // printf("LFO Rate: %d\n", readInt);
 
 			  data->lfo_rate = (float)readInt/10000;
 			  
 			  
 
               fclose(fp);
-              printf("\n");
+              // printf("\n");
             }
     
         }

@@ -59,5 +59,14 @@ ALSA lib pcm_usb_stream.c:486:(_snd_pcm_usb_stream_open) Invalid type for card
 ALSA lib pcm_dmix.c:1089:(snd_pcm_dmix_open) unable to open slave
 ``` 
 
+## Fixes
 
+### Underrun
 
+From [https://github.com/Katee/quietnet/issues/18](this thead) for a program that uses PyAudio on Linux: 
+
+```
+The underun is likely caused because pulseaudio is already accessing the card - you can pause it using http://linux.die.net/man/1/pasuspender. In general to avoid such deadlock, you need a soundserver like jackd https://help.ubuntu.com/community/What%20is%20JACK, but you already figured this out from the following log entries in your trace ;-) (apt-get install jackd)
+```
+
+__pasuspender__ basically just lets you suspend `pulseaudio` so that programs that need to access sound server devices directly can do so.
