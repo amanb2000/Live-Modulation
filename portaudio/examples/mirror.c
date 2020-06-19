@@ -130,7 +130,9 @@ static int fuzzCallback( const void *inputBuffer, void *outputBuffer,
     {
         for( i=0; i<framesPerBuffer; i++ )
         {
-			float val =  (*in++)*(data->sine[(int)data->lfo_phase])*0.9; 
+			
+			float val;
+			val =  (*in++)*(data->sine[(int)data->lfo_phase])*0.9; 
             // *out++ = (*in++)*(data->sine[(int)data->lfo_phase])*0.9;  /* left - distorted */
             // *out++ = (*in++)*(data->sine[(int)data->lfo_phase])*0.9;          /* right - clean */
             *out++ = val;
